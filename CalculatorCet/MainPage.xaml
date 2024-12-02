@@ -64,6 +64,8 @@
 
                 <Button Text="CE" x:Name="CEButton" Clicked="CEButton_Clicked"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ></Button>
                 <Button Text="C" x:Name="CButton" Clicked="CButton_Clicked"  Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" ></Button>
+                <Button Text="MS" x:Name="MSButton" Clicked="MSButton_Clicked" Grid.Row="4" Grid.Column="4" />
+                <Button Text="MR" x:Name="MRButton" Clicked="MRButton_Clicked" Grid.Row="4" Grid.Column="5" />
 
             </Grid>
             
