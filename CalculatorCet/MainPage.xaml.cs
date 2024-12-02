@@ -14,6 +14,7 @@
         double FirstNumber;
         bool isFirstNumberAfterOperator = true;
         Operator PreviousOperator = Operator.None;
+        double MemoryNumber = 0;
 
 
         private void SubtractButton_Clicked(object sender, EventArgs e)
@@ -78,12 +79,14 @@
             Button digitButton = sender as Button;
             if(isFirstNumberAfterOperator)
             {
-                Display.Text = digitButton.Text;
+                Display.Text = digitButton.Text=="," ? "0," : digitButton.Text;
                 isFirstNumberAfterOperator = false;
 
             }
             else
             {
+                if(digitButton.Text=="," && Dispaly.Text.Contains(","))
+                  return;
                 Display.Text += digitButton.Text;
             }
            
@@ -108,6 +111,15 @@
             FirstNumber = 0;
             PreviousOperator= Operator.None;
             isFirstNumberAfterOperator = true;
+        }
+        private void MSButton_Clicked(object sender, EventArgs e)
+        {
+        MemoryNumber = Double.Parse(Display.Text);
+        }
+        private void MRbutton_Clicked(object sender,EventArgs e)
+        {
+        Display.Text = MemoryNumberToString();
+        isFirstNumberAfterOperator = true;
         }
     }
 
