@@ -124,7 +124,7 @@ void DoCalculation()
         }
         private void MRbutton_Clicked(object sender,EventArgs e)
         {
-        Display.Text = MemoryNumberToString();
+        Display.Text = MemoryNumber.ToString();
         isFirstNumberAfterOperator = true;
         }
     }
