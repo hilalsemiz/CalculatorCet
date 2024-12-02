@@ -44,35 +44,41 @@
             PreviousOperator = Operator.Add;
 
         }
+void DoCalculation()
+{
+    if (!string.IsNullOrEmpty(Display.Text)) 
+    {
+        double currentNumber = Double.Parse(Display.Text);
 
-        void DoCalculation()
+        
+        switch (PreviousOperator)
         {
-
-            switch (PreviousOperator)
-            {
-                case Operator.None:
-                    FirstNumber = Double.Parse(Display.Text);
-                    break;
-                case Operator.Add:
-                    FirstNumber = FirstNumber + Double.Parse(Display.Text);
-                    break;
-                case Operator.Subtract:
-                    FirstNumber = FirstNumber - Double.Parse(Display.Text);
-
-                    break;
-                case Operator.Multiply:
-                    FirstNumber = FirstNumber * Double.Parse(Display.Text);
-
-                    break;
-                case Operator.Divide:
-                    FirstNumber = FirstNumber / Double.Parse(Display.Text);
-
-                    break;
-
-            }
-            isFirstNumberAfterOperator = true;
-            Display.Text = FirstNumber.ToString();
+            case Operator.None:
+                FirstNumber = currentNumber;
+                break;
+            case Operator.Add:
+                FirstNumber += currentNumber;
+                break;
+            case Operator.Subtract:
+                FirstNumber -= currentNumber;
+                break;
+            case Operator.Multiply:
+                FirstNumber *= currentNumber;
+                break;
+            case Operator.Divide:
+                FirstNumber /= currentNumber;
+                break;
         }
+
+        
+        Display.Text = FirstNumber.ToString();
+    }
+
+    
+    isFirstNumberAfterOperator = true; 
+    PreviousOperator = Operator.None; 
+}
+
 
         private void Digit_Clicked(object sender, EventArgs e)
         {
